@@ -7,5 +7,6 @@ export default {
   },
   reponses: {
     creer: async (depot) => (await axios.post('/v1/demande-clinique/reponses', depot)).data,
+    valider: async (reponses) =>(await axios.post('/v1/reponse/validate',{reponses}))
   }
 };

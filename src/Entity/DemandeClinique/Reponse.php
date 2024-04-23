@@ -43,6 +43,24 @@ class Reponse
      */
     private $type;
 
+    /**
+     * @ORM\Column $state(type="boolean")
+     */
+    private $state;
+
+    /**
+     * @ORM\Column(type="text",nullable=true)
+     */
+    private $validationReason;
+
+
+    public function __construct()
+    {
+        $this->state = false;
+        $this->validationReason = null;
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -106,5 +124,31 @@ class Reponse
         $this->type = $type;
 
         return $this;
+    }
+
+    public function getState():bool
+    {
+        return $this->state;
+    }
+
+    public function setState(bool $state):self{
+        $this->state = $state;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValidationReason()
+    {
+        return $this->validationReason;
+    }
+
+    /**
+     * @param mixed $validationReason
+     */
+    public function setValidationReason($validationReason): void
+    {
+        $this->validationReason = $validationReason;
     }
 }

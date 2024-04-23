@@ -46,4 +46,6 @@ class DepotsController extends AbstractController
 
         return $this->json([], Response::HTTP_CREATED);
     }
+
+
 }

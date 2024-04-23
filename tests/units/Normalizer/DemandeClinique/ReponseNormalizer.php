@@ -25,7 +25,9 @@ class ReponseNormalizer extends atoum\test
                         'description' => 'description',
                         'type' => 1,
                         'depot' => 1,
-                    ])
+                        'state'=>false,
+                        'validationReason'=>null
+                    ]);
         ;
     }
 
@@ -38,6 +40,8 @@ class ReponseNormalizer extends atoum\test
         $this->calling($reponse)->getDescription = 'description';
         $this->calling($reponse)->getType = 1;
         $this->calling($reponse)->getDepot = $this->getDepot();
+        $this->calling($reponse)->getState = false;
+        $this->calling($reponse)->getValidationReason = null;
 
         return $reponse;
     }
@@ -49,6 +53,7 @@ class ReponseNormalizer extends atoum\test
 
         return $depot;
     }
+
 
     private function getTestedInstance()
     {
